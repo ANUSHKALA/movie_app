@@ -35,23 +35,7 @@ types.set("fairy","rose-200")
 
 const Card = (props:CardProps) =>{
 
-    function colourCard(){
-        let bc:String = "stone-800";
-        // @ts-ignore
-        let color:String = props.i.type;
-
-        if(types.has(color)){
-            bc = types.get(color)
-            console.log(bc)
-
-        }
-        else{
-            bc = "stone-800"
-        }
-        const tc:any = " bg-"+bc
-        return tc;
-    }
-    console.log(props.abilitiesArray)
+    // console.log(props.abilitiesArray)
 
     return(
         <div className="py-5 mx-3 my-5">
@@ -69,7 +53,6 @@ const Card = (props:CardProps) =>{
                 <div className="justify-center">
                     <Link href={{
                         pathname:'/PokePage',
-
                          query:{
                             // @ts-ignore
                             name:props.name,
@@ -85,7 +68,7 @@ const Card = (props:CardProps) =>{
                             type: props.type,
                         }
                     }}>
-                        <button type="button" className="bg-gray-800 hover:bg-black text-white font-semibold hover:text-white px-12 border border-black hover:border-transparent rounded">
+                        <button type="button" className="bg-gray-700 hover:bg-black text-white font-semibold hover:text-white px-12 border border-black hover:border-transparent rounded">
                             View
                         </button>
                     </Link>

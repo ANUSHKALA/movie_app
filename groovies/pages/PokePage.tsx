@@ -3,8 +3,7 @@ import Link from "next/link";
 import {useRouter} from "next/router";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
-import {number} from "prop-types";
-import Card from "../components/Card";
+
 
 
 export default function Page() {
@@ -26,12 +25,12 @@ export default function Page() {
                 <div>
 
                 </div>
-                <div className="bg-gray-500 w-screen justify-items-center pb-3 h-fit grid">
-                    <h1 className={styles.title}>
+                <div className="bg-gray-500 w-screen justify-items-center pb-7 h-fit grid">
+                    <h1 className="text-6xl mt-7 font-bold">
                         POKEDEX
                     </h1>
                 </div>
-                <div className="bg-gray-200 p-3 mx-auto my-auto bottom-2 rounded-2xl h-100">
+                <div className="bg-gray-500 p-3 mx-auto my-auto rounded-2xl h-100">
                     <div className="mx-auto">
                         <    // @ts-ignore
                             img src={data.image} className="mx-auto"/>
@@ -50,46 +49,4 @@ export default function Page() {
                 </div>
             </main>
         </div>
-
-            // @ts-ignore
-            // title={data.title}>
-            //
-            // <div className="grid h-screen place-items-center">
-            //
-            //
-            //     <div className="relative bottom-40 left-50">
-            //         <div>
-            //                 <img
-            //                     // @ts-ignore
-            //                     src={data.image}
-            //                     // width="200px"
-            //                     // height="200px"
-            //                     className=" shadow-lg max-w-fit h-60 align-middle border-none undefined bg-grey-800 grid h-50 w-50px place-items-center"
-            //                   />
-            //                 {/*<Image src={data.image} layout='fill'/>*/}
-            //             <h1 className="text-center text-3xl">
-            //
-            //                 {//@ts-ignore
-            //                     (data.title)
-            //                 }
-            //             </h1>
-            //             <hr />
-            //         </div>
-
-            //         Abilities:
-            //         <br />
-            //
-            //         {o.map((el:String,index:number) => {
-            //
-            //             return(
-            //                 <div key={index}>
-            //                     {el}
-            //                     <br />
-            //                 </div>
-            //             )
-            //         })}
-            //     </div>
-            // </div>
-
-
     )}
