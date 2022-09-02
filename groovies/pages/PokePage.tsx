@@ -11,13 +11,6 @@ export default function Page() {
     const router = useRouter();
     const data = router.query;
 
-    let o:[] = [];
-
-
-    for(let i in Object(data.about)){
-        // @ts-ignore
-        o = [...o,(Object(data.about))[i]]
-    }
 
     console.log(data)
     // @ts-ignore
@@ -40,7 +33,8 @@ export default function Page() {
                 </div>
                 <div className="bg-gray-200 p-3 mx-auto my-auto bottom-2 rounded-2xl h-100">
                     <div className="mx-auto">
-                        <img src={data.image} className="mx-auto"/>
+                        <    // @ts-ignore
+                            img src={data.image} className="mx-auto"/>
                     </div>
                     <div className="ml-4 my-auto pl-30 text-2xl capitalize">
                         Name: {data.name}

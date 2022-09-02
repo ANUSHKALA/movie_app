@@ -7,26 +7,6 @@ import {useEffect, useState} from "react";
 import {number} from "prop-types";
 
 
-const types = new Map();
-types.set("normal","slate-300")
-types.set("fire","amber-500")
-types.set("water","cyan-400")
-types.set("grass","lime-600")
-types.set("electric","yellow-400")
-types.set("ice","teal-100")
-types.set("fighting","rose-800")
-types.set("poison","fuchsia-800")
-types.set("ground","yellow-200")
-types.set("flying","violet-300")
-types.set("psychic","pink-400")
-types.set("bug","lime-500")
-types.set("ghost","violet-900")
-types.set("rock","slate-900")
-types.set("dragon","cyan-800")
-types.set("steel","zinc-400")
-types.set("fairy","rose-200")
-
-
 export async function getServerSideProps(){
     const res = await fetch("https://pokeapi.co/api/v2/pokemon?limit=50 0&offset=0")
     const resJ = await res.json();
@@ -51,7 +31,9 @@ const Home: NextPage = (props) => {
     const [search,setSearch] = useState("");
     const fetchPokemon = () => {
         setData([]);
+        // @ts-ignore
         (props.rel).map((el:{},index:number) => {
+            // @ts-ignore
             fetch(el.url)
                 .then(res => res.json())
                 .then(res => setData((pre) => [...pre,res]))
@@ -63,7 +45,7 @@ const Home: NextPage = (props) => {
     // console.log(data)
 
     function handleChange(e: React.FormEvent<HTMLInputElement>) {
-
+        // @ts-ignore
         setSearch(e.target.value);
         console.log(search);
 
@@ -100,15 +82,15 @@ const Home: NextPage = (props) => {
                       let c: String = "";
                       let abArr:[] = [];
                       el.abilities.map((el:{},index:number) => {
+                          // @ts-ignore
                           abArr.push(el.ability.name);
                       })
-                          console.log(abArr)
-                      if(types.has(t)){
-                        c = ""+types.get(t)
-                      }
+                          // console.log(abArr)
                   return(
                       <div key={index} className="mx-3 w-40 rounded-xl my-2 bg-gray-700">
-                          <Card name={el.name} image={el.sprites.other.dream_world.front_default} type={el.types[0].type.name} abilitiesArray={abArr}  height={el.height} weight={el.weight}/>
+                          <
+                              // @ts-ignore
+                              Card name={el.name} image={el.sprites.other.dream_world.front_default} type={el.types[0].type.name} abilitiesArray={abArr}  height={el.height} weight={el.weight} />
                       </div>
                   )
               })
