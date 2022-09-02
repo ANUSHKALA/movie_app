@@ -1,8 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
 import React from "react";
-import {inspect} from "util";
-import styles = module
+
 
 type CardProps = {
     name: String,
