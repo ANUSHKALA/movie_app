@@ -8,7 +8,7 @@ import {number} from "prop-types";
 
 
 export async function getServerSideProps(){
-    const res = await fetch("https://pokeapi.co/api/v2/pokemon?limit=50 0&offset=0")
+    const res = await fetch("https://pokeapi.co/api/v2/pokemon?limit=400 0&offset=0")
     const resJ = await res.json();
     const rel = resJ.results;
 
