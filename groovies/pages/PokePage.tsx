@@ -24,9 +24,9 @@ export default function Page() {
             <main className={styles.pokepage}>
                 <div className="bg-gray-400 w-screen justify-items-center pb-7 h-fit grid">
                     <h1 className="text-6xl mt-7 text-gray-700 font-bold">
-                        <a href="/">
+                        <Link href="/">
                             POKEDEX
-                        </a>
+                        </Link>
                     </h1>
                 </div>
                 <div className="bg-gray-400 p-3 mx-auto my-auto rounded-2xl h-100">
