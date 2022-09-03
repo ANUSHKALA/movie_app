@@ -72,7 +72,7 @@ const Home: NextPage = (props) => {
                   </form>
               </div>
           </div>
-          <div className="flex flex-wrap justify-center mx-auto mt-5">
+          <div className="flex flex-wrap justify-center mx-auto mt-5 ">
               {    // @ts-ignore
                   data
                       .filter(info =>
@@ -86,7 +86,7 @@ const Home: NextPage = (props) => {
                       })
                           // console.log(abArr)
                   return(
-                      <div key={index} className="mx-3 w-40 rounded-xl my-2 bg-gray-500">
+                      <div key={index} className="mx-3 w-40 rounded-xl my-2 bg-gray-500 overflow-hidden">
                           <
                               // @ts-ignore
                               Card name={el.name} image={el.sprites.other.dream_world.front_default} type={el.types[0].type.name} abilitiesArray={abArr}  height={el.height} weight={el.weight} />

@@ -38,7 +38,7 @@ const Card = (props:CardProps) =>{
     // console.log(props.abilitiesArray)
 
     return(
-        <div className="py-5 mx-3 my-5">
+        <div className="py-5 mx-3 my-5 ">
             <div className="h-40 w-50" >
                 <div className="h-24">
                     <img className="mx-auto py-3 px-1 "
