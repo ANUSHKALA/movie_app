@@ -5,6 +5,7 @@ import styles from '../styles/Home.module.css'
 import Card from "../components/Card";
 import {useEffect, useState} from "react";
 import {number} from "prop-types";
+import Link from "next/link";
 
 
 export async function getServerSideProps(){
@@ -61,9 +62,9 @@ const Home: NextPage = (props) => {
       <main className="bg-slate-300 w-screen no-scrollbar">
           <div className="bg-gray-400 w-screen  justify-items-center pb-3 h-fit grid">
               <h1 className="text-6xl text-center mt-7 pb-4 font-bold text-gray-700">
-                  <a href="/">
+                  <Link href="/">
                       POKEDEX
-                  </a>
+                  </Link>
               </h1>
               <div className="justify-center">
                   <form>
