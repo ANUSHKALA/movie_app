@@ -6,7 +6,7 @@ import styles from "../styles/Home.module.css";
 
 
 
-export default function Page() {
+const PokePage = () => {
     const router = useRouter();
     const data = router.query;
 
@@ -23,9 +23,9 @@ export default function Page() {
             </Head>
             <main className={styles.pokepage}>
                 <div className="bg-gray-400 w-screen justify-items-center pb-7 h-fit grid">
-                    <h1 className="text-6xl mt-7 text-gray-700 font-bold capitalize">
+                    <h1 className="text-6xl mt-7 text-gray-700 font-bold">
                         <Link href="/">
-                            {data.name}
+                            POKEDEX
                         </Link>
                     </h1>
                 </div>
@@ -49,3 +49,5 @@ export default function Page() {
             </main>
         </div>
     )}
+
+export default PokePage;
