@@ -49,7 +49,7 @@ const Card = (props:CardProps) =>{
                          height="100px"
                     />
                 </div>
-                <h5 className="mh-3 my-5 text-center text-xl font-bold tracking-tight dark:text-white capitalize">{(props.name)}</h5>
+                <h5 className="mh-3 my-5 text-center text-xl font-bold text-gray-200 tracking-tight dark:text-white capitalize">{(props.name)}</h5>
                 <div className="justify-center">
                     <Link href={{
                         pathname:'/PokePage',
@@ -68,7 +68,7 @@ const Card = (props:CardProps) =>{
                             type: props.type,
                         }
                     }}>
-                        <button type="button" className="bg-gray-700 hover:bg-black text-white font-semibold hover:text-white px-12 border border-black hover:border-transparent rounded">
+                        <button type="button" className="bg-gray-600 hover:bg-gray-600 text-white font-semibold hover:text-white px-12 border border-gray-600 hover:border-transparent rounded">
                             View
                         </button>
                     </Link>

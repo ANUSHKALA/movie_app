@@ -60,7 +60,7 @@ const Home: NextPage = (props) => {
       </Head>
       <main className="bg-slate-300 w-screen">
           <div className="bg-gray-400 w-screen justify-items-center pb-3 h-fit grid">
-              <h1 className="text-6xl mt-7 font-bold">
+              <h1 className="text-6xl mt-7 font-bold text-gray-700">
                   POKEDEX
               </h1>
               <div>
@@ -76,7 +76,6 @@ const Home: NextPage = (props) => {
                         info.name.toLowerCase().includes(search.toLowerCase())
                       )
                       .map((el:any,index:number) => {
-                      // console.log(el.types[0].type.name)
                       let abArr:[] = [];
                       el.abilities.map((el:{},index:number) => {
                           // @ts-ignore

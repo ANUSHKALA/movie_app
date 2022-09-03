@@ -25,17 +25,17 @@ export default function Page() {
                 <div>
 
                 </div>
-                <div className="bg-gray-500 w-screen justify-items-center pb-7 h-fit grid">
-                    <h1 className="text-6xl mt-7 font-bold">
+                <div className="bg-gray-400 w-screen justify-items-center pb-7 h-fit grid">
+                    <h1 className="text-6xl mt-7 text-gray-700 font-bold">
                         POKEDEX
                     </h1>
                 </div>
-                <div className="bg-gray-500 p-3 mx-auto my-auto rounded-2xl h-100">
+                <div className="bg-gray-400 p-3 mx-auto my-auto rounded-2xl h-100">
                     <div className="mx-auto">
                         <    // @ts-ignore
                             img src={data.image} className="mx-auto"/>
                     </div>
-                    <div className="ml-4 my-auto pl-30 text-2xl capitalize">
+                    <div className="ml-4 my-auto pl-30 text-2xl pt-3 text-gray-700 capitalize">
                         Name: {data.name}
                         <br/>
                         Weight: { Number(data.w)}
