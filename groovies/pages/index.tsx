@@ -8,8 +8,8 @@ import {number} from "prop-types";
 import Link from "next/link";
 
 
-export async function getServerSideProps(){
-    const res = await fetch("https://pokeapi.co/api/v2/pokemon?limit=400 0&offset=0")
+export async function getStaticProps(){
+    const res = await fetch("https://pokeapi.co/api/v2/pokemon?limit=600 0&offset=0")
     const resJ = await res.json();
     const rel = resJ.results;
 
