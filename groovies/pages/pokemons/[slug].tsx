@@ -2,15 +2,26 @@ import Head from 'next/head';
 import Link from "next/link";
 import {useRouter} from "next/router";
 import Image from "next/image";
-import styles from "../styles/Home.module.css";
+import styles from "../../styles/Home.module.css";
 
+//
+//
+// export function getStaticPaths(){
+//     const slug = data.name;
+//     return{
+//         params: {
+//             slug
+//         }
+//     }
+// }
 
 
 const PokePage = () => {
+
     const router = useRouter();
     const data = router.query;
 
-
+    console.log(router)
     console.log(data)
     // @ts-ignore
     // @ts-ignore
@@ -35,7 +46,7 @@ const PokePage = () => {
                             img src={data.image} className="mx-auto"/>
                     </div>
                     <div className="ml-4 my-auto pl-30 text-2xl pt-3 text-gray-700 capitalize">
-                        Name: {data.name}
+                        Name: {data.slug}
                         <br/>
                         Weight: { Number(data.w)}
                         <br />

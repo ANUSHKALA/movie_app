@@ -52,7 +52,7 @@ const Card = (props:CardProps) =>{
                 <h5 className="mh-3 my-5 text-center text-xl font-bold text-gray-200 tracking-tight dark:text-white capitalize">{(props.name)}</h5>
                 <div className="justify-center">
                     <Link href={{
-                        pathname:'/PokePage',
+                        pathname:'/pokemons/[slug]',
                          query:{
                             // @ts-ignore
                             name:props.name,
@@ -67,7 +67,10 @@ const Card = (props:CardProps) =>{
                             // @ts-ignore
                             type: props.type,
                         }
-                    }}>
+
+                    }
+                    }
+                    as={"/pokemons/"+props.name}>
                         <button type="button" className="bg-gray-600 hover:bg-gray-600 text-white font-semibold hover:text-white px-12 border border-gray-600 hover:border-transparent rounded">
                             View
                         </button>
