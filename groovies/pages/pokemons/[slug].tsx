@@ -10,6 +10,7 @@ export async function getStaticPaths() {
     const res = await fetch("https://pokeapi.co/api/v2/pokemon?limit=600 0&offset=0")
     const resj = await res.json()
     const results = resj.results.map((el: {}, index: number) => {
+        // @ts-ignore
         return el.name;
     })
 
@@ -48,24 +49,19 @@ export async function getStaticProps(context) {
 
 
 const PokePage = (props) => {
-    // console.log("hgfd")
-    // console.log( props)
 
     const router = useRouter();
     const data = router.query;
-
-    const [isPokemon,setIsPokemon] = useState(false);
 
     console.log(props)
 
     const abilities = props.resj.abilities.map((el:{},index:number) => {
         return(
+            // @ts-ignore
             el.ability.name
         )
     })
-
     console.log(abilities)
-
     return(
         <div>
             <Head>
