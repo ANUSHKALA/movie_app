@@ -3,28 +3,69 @@ import Link from "next/link";
 import {useRouter} from "next/router";
 import Image from "next/image";
 import styles from "../../styles/Home.module.css";
+import {useEffect, useState} from "react";
 
-//
-//
-// export function getStaticPaths(){
-//     const slug = data.name;
-//     return{
-//         params: {
-//             slug
-//         }
-//     }
-// }
+export async function getStaticPaths() {
+
+    const res = await fetch("https://pokeapi.co/api/v2/pokemon?limit=600 0&offset=0")
+    const resj = await res.json()
+    const results = resj.results.map((el: {}, index: number) => {
+        return el.name;
+    })
+
+    const paths = results.map((el:String,index:number) => {
+        return{
+            params: {
+                slug: el
+            }
+        }
+    })
+    return {
+        paths: paths,
+        fallback: false,
+    }
+}
 
 
-const PokePage = () => {
+export async function getStaticProps(context) {
+    console.log("lalala")
+    console.log(context)
+    let resj = {}
+    await fetch(`https://pokeapi.co/api/v2/pokemon/${context.params.slug}/`)
+        ?.then(res => res.json())
+        ?.then(res => {
+            resj = res;
+        })
+    // const resj = await res.json()
+    console.log(resj)
+    // @ts-ignore
+    return {
+        props: {
+            resj
+        }
+    }
+}
+
+
+const PokePage = (props) => {
+    // console.log("hgfd")
+    // console.log( props)
 
     const router = useRouter();
     const data = router.query;
 
-    console.log(router)
-    console.log(data)
-    // @ts-ignore
-    // @ts-ignore
+    const [isPokemon,setIsPokemon] = useState(false);
+
+    console.log(props)
+
+    const abilities = props.resj.abilities.map((el:{},index:number) => {
+        return(
+            el.ability.name
+        )
+    })
+
+    console.log(abilities)
+
     return(
         <div>
             <Head>
@@ -40,23 +81,33 @@ const PokePage = () => {
                         </Link>
                     </h1>
                 </div>
-                <div className="bg-gray-400 p-3 mx-auto my-auto rounded-2xl h-100">
-                    <div className="mx-auto">
-                        <    // @ts-ignore
-                            img src={data.image} className="mx-auto"/>
+                {/*{pokeList.includes(data.slug)}*/}
+                {(Object.keys(props).length !== 0)?
+
+                    <div className="bg-gray-400 p-3 mx-auto my-auto rounded-2xl h-100">
+                        <div className="mx-auto">
+                            <    // @ts-ignore
+                                img src={props.resj.sprites.other.dream_world.front_default} className="mx-auto"/>
+                        </div>
+                        <div className="ml-4 my-auto pl-30 text-2xl pt-3 text-gray-700 capitalize">
+                            Name: {props.resj.name}
+                            <br/>
+                            Weight: { props.resj.weight}
+                            <br />
+                            Height: {props.resj.height}
+                            <br />
+                            Type: {props.resj.types[0].type.name}
+                            <br />
+                            Abilities: {abilities + " "}
+                        </div>
                     </div>
-                    <div className="ml-4 my-auto pl-30 text-2xl pt-3 text-gray-700 capitalize">
-                        Name: {data.slug}
-                        <br/>
-                        Weight: { Number(data.w)}
-                        <br />
-                        Height: { Number(data.h)}
-                        <br />
-                        Type: {data.type}
-                        <br />
-                        Abilities: {data.about + " "}
+                 :
+                    <div className="bg-gray-400 p-3 mx-auto my-auto rounded-2xl h-100 text-gray-700 text-4xl capitalize">
+                        <img src="https://www.svgrepo.com/show/25597/pokemon.svg" className="mb-7"/>
+                        This pokemon does not exist
                     </div>
-                </div>
+                }
+
             </main>
         </div>
     )}

@@ -12,14 +12,15 @@ export async function getStaticProps(){
     const res = await fetch("https://pokeapi.co/api/v2/pokemon?limit=600 0&offset=0")
     const resJ = await res.json();
     const rel = resJ.results;
+    // (resJ.results).map(async (el: {}, index: number) => {
+    //     // @ts-ignore
+    //     const rs = await fetch("https://pokeapi.co/api/v2/pokemon/" + el.name + "/");
+    //     const rsj = await rs.json();
+    //     // console.log(rsj)
+    //     rel.push(rsj);
+    // })
 
-    (resJ.results).map(async (el: {}, index: number) => {
-        // @ts-ignore
-        const rs = await fetch("https://pokeapi.co/api/v2/pokemon/" + el.name + "/");
-        const rsj = await rs.json();
-        // console.log(rsj)
-        rel.push(rsj);
-    })
+    // console.log(rel)
 
     return{
         props: {rel}
@@ -28,6 +29,7 @@ export async function getStaticProps(){
 
 const Home: NextPage = (props) => {
 
+    // console.log(props);
     const [data,setData] = useState([]);
     const [search,setSearch] = useState("");
     const fetchPokemon = () => {
@@ -68,7 +70,7 @@ const Home: NextPage = (props) => {
               </h1>
               <div className="justify-center">
                   <form>
-                      <input className=" my-3" placeholder="Search..." onChange={handleChange}/>
+                      <input className=" my-3 px-4 rounded-3xl" placeholder="Search..."  onChange={handleChange}/>
                   </form>
               </div>
           </div>

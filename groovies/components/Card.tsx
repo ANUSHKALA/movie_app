@@ -53,21 +53,20 @@ const Card = (props:CardProps) =>{
                 <div className="justify-center">
                     <Link href={{
                         pathname:'/pokemons/[slug]',
-                         query:{
-                            // @ts-ignore
-                            name:props.name,
-                            // @ts-ignore
-                            image:props.image,
-                            // @ts-ignore
-                            about:Object(props.abilitiesArray),
-                            // @ts-ignore
-                            h:Number(props.height),
-                            // @ts-ignore
-                            w:Number(props.weight),
-                            // @ts-ignore
-                            type: props.type,
-                        }
-
+                        //  query:{
+                        //     // @ts-ignore
+                        //     name:props.name,
+                        //     // @ts-ignore
+                        //     image:props.image,
+                        //     // @ts-ignore
+                        //     about:Object(props.abilitiesArray),
+                        //     // @ts-ignore
+                        //     h:Number(props.height),
+                        //     // @ts-ignore
+                        //     w:Number(props.weight),
+                        //     // @ts-ignore
+                        //     type: props.type,
+                        // }
                     }
                     }
                     as={"/pokemons/"+props.name}>
