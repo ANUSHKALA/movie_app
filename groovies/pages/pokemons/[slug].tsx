@@ -7,7 +7,7 @@ import {useEffect, useState} from "react";
 
 export async function getStaticPaths() {
 
-    const res = await fetch("https://pokeapi.co/api/v2/pokemon?limit=600 0&offset=0")
+    const res = await fetch("https://pokeapi.co/api/v2/pokemon?limit=1000 0&offset=0")
     const resj = await res.json()
     const results = resj.results.map((el: {}, index: number) => {
         // @ts-ignore
@@ -72,13 +72,15 @@ const PokePage = (props) => {
                         </Link>
                     </h1>
                 </div>
-                <div className="bg-gray-400 p-3 mx-auto my-auto rounded-2xl h-100">
+                <div className="bg-gray-300 p-3 mx-auto my-auto rounded-2xl h-100">
+                    <h1 className="text-center text-gray-800 text-5xl capitalize px-auto py-10">
+                        {props.resj.name}
+                    </h1>
                     <div className="mx-auto">
                         <    // @ts-ignore
                             img src={props.resj.sprites.other.dream_world.front_default} className="mx-auto"/>
                     </div>
                     <div className="ml-4 my-auto pl-30 text-2xl pt-3 text-gray-700 capitalize">
-                        Name: {props.resj.name}
                         <br/>
                         Weight: { props.resj.weight}
                         <br />

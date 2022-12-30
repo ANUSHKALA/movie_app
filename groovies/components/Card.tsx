@@ -5,7 +5,7 @@ import React from "react";
 
 type CardProps = {
     name: String,
-    image: String,
+    image: [],
     type: String,
     abilitiesArray: [],
     height: number,
@@ -38,7 +38,7 @@ const Card = (props:CardProps) =>{
     // console.log(props.abilitiesArray)
 
     return(
-        <div className="py-5 mx-3 my-5 ">
+        <div className="py-8 mx-3 my-5 ">
             <div className="h-40 w-50" >
                 <div className="h-24">
                     <img className="mx-auto py-3 px-1 "
@@ -49,7 +49,7 @@ const Card = (props:CardProps) =>{
                          height="100px"
                     />
                 </div>
-                <h5 className="mh-3 my-5 text-center text-xl font-bold text-gray-200 tracking-tight dark:text-white capitalize">{(props.name)}</h5>
+                <h5 className="mh-3 my-5 text-center text-xl font-bold text-gray-700 tracking-tight dark:text-white capitalize pt-2">{(props.name)}</h5>
                 <div className="justify-center">
                     <Link href={{
                         pathname:'/pokemons/[slug]',
@@ -70,7 +70,8 @@ const Card = (props:CardProps) =>{
                     }
                     }
                     as={"/pokemons/"+props.name}>
-                        <button type="button" className="bg-gray-600 hover:bg-gray-600 text-white font-semibold hover:text-white px-12 border border-gray-600 hover:border-transparent rounded">
+
+                        <button type="button" className="bg-gray-300 hover:bg-gray-600 text-gray-700 font-semibold hover:text-white px-12 hover:border-transparent rounded mb-">
                             View
                         </button>
                     </Link>
