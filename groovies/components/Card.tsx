@@ -38,9 +38,16 @@ const Card = (props:CardProps) =>{
     // console.log(props.abilitiesArray)
 
     return(
-        <div className="py-8 mx-3 my-5 ">
-            <div className="h-40 w-50" >
-                <div className="h-24">
+        <div className="mx-3 text-center">
+
+        <Link className='justify-center' href={{
+            pathname:'/pokemons/[slug]'
+        }
+        }
+              as={"/pokemons/"+props.name}>
+            <button type="button" >
+                <div className="">
+                    <h5 className="mh-3 my-5 text-center text-xl font-bold text-gray-700 tracking-tight dark:text-white capitalize pt-2">{(props.name)}</h5>
                     <img className="mx-auto py-3 px-1 "
                         // @ts-ignore
                          src={props.image}
@@ -49,35 +56,10 @@ const Card = (props:CardProps) =>{
                          height="100px"
                     />
                 </div>
-                <h5 className="mh-3 my-5 text-center text-xl font-bold text-gray-700 tracking-tight dark:text-white capitalize pt-2">{(props.name)}</h5>
-                <div className="justify-center">
-                    <Link href={{
-                        pathname:'/pokemons/[slug]',
-                        //  query:{
-                        //     // @ts-ignore
-                        //     name:props.name,
-                        //     // @ts-ignore
-                        //     image:props.image,
-                        //     // @ts-ignore
-                        //     about:Object(props.abilitiesArray),
-                        //     // @ts-ignore
-                        //     h:Number(props.height),
-                        //     // @ts-ignore
-                        //     w:Number(props.weight),
-                        //     // @ts-ignore
-                        //     type: props.type,
-                        // }
-                    }
-                    }
-                    as={"/pokemons/"+props.name}>
-
-                        <button type="button" className="bg-gray-300 hover:bg-gray-600 text-gray-700 font-semibold hover:text-white px-12 hover:border-transparent rounded mb-">
-                            View
-                        </button>
-                    </Link>
-                </div>
-            </div>
+            </button>
+        </Link>
         </div>
+
     )
 }
 export default Card;
