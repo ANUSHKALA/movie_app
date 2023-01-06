@@ -3,10 +3,11 @@ import Head from 'next/head'
 import Card from "../components/Card";
 import {useEffect, useState} from "react";
 import Link from "next/link";
+import AppView from "../components/AppView";
 
 
-export async function getStaticProps(){
-    const res = await fetch("https://pokeapi.co/api/v2/pokemon?limit=1000 0&offset=0")
+export async function getServerSideProps(){
+    const res = await fetch("https://pokeapi.co/api/v2/pokemon?limit=10&offset=0")
     const resJ = await res.json();
     const rel = resJ.results;
     return{
@@ -44,60 +45,56 @@ const Home: NextPage = (props) => {
 
     return (
         <div>
-            <div className='drop-shadow-lg shadow-slate-900'>
-                <img src='/bgimg.jpg' className='w-screen h-7 object-cover'/>
-            </div>
-            <div className='flex items-center justify-items-stretch'>
-                <img src='/pokedex.png' className='h-14 px-5'/>
-                <input onChange={handleChange} placeholder='Search pokemons' className=' border rounded-3xl border-gray-700 block w-full h-8 mx-4 my-2 px-4'/>
-            </div>
-            <div className='flex justify-center'>
+            <AppView title='Pokedex'>
+
+                <div className='flex justify-center'>
 
 
-                <ul className="flex flex-wrap text-sm font-medium text-center text-gray-500 dark:text-gray-400">
-                    {l.map((el:string,index:number) => {
-                        return(
-                            <li className="">
-                                <a href="#"
-                                   className="inline-block py-3 px-4 rounded-lg hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white">
-                                    {el}
-                                </a>
-                            </li>
-                        )
-                    }
-                    )}
-                </ul>
-            </div>
-            <div className="flex flex-wrap justify-center mx-auto mt-5 ">
-                {    // @ts-ignore
-                    data
-                        .filter(info =>
-                            info.name.toLowerCase().includes(search.toLowerCase())
-                        )
-                        .map((el:any,index:number) => {
-                            let abArr:[] = [];
-                            el.abilities.map((el:{},index:number) => {
-                                // @ts-ignore
-                                abArr.push(el.ability.name);
-                            })
-                            // console.log(abArr)
-                            return(
-                                <div key={index} className="mx-3 w-40 rounded-xl my-2 bg-slate-200 overflow-hidden">
-                                    <Card
-                                        name={el.name}
-                                        id={el.id}
-                                        // @ts-ignore
-                                        image={
-                                            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/"+el.id+".gif"} type={el.types[0].type.name
-                                        }
-                                        abilitiesArray={abArr}
-                                        height={el.height}
-                                        weight={el.weight}
-                                    />
-                                </div>
+                    <ul className="flex flex-wrap text-sm font-medium text-center text-gray-500 dark:text-gray-400">
+                        {l.map((el:string,index:number) => {
+                                return(
+                                    <li className="">
+                                        <a href="/types/[type]"
+                                           className="inline-block py-3 px-4 rounded-lg hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white">
+                                            {el}
+                                        </a>
+                                    </li>
+                                )
+                            }
+                        )}
+                    </ul>
+                </div>
+                <div className="flex flex-wrap justify-center mx-auto mt-5 ">
+                    {    // @ts-ignore
+                        data
+                            .filter(info =>
+                                info.name.toLowerCase().includes(search.toLowerCase())
                             )
-                        })}
-            </div>
+                            .map((el:any,index:number) => {
+                                let abArr:[] = [];
+                                el.abilities.map((el:{},index:number) => {
+                                    // @ts-ignore
+                                    abArr.push(el.ability.name);
+                                })
+                                // console.log(abArr)
+                                return(
+                                    <div key={index} className="mx-3 w-40 rounded-xl my-2 bg-slate-200 overflow-hidden">
+                                        <Card
+                                            name={el.name}
+                                            id={el.id}
+                                            // @ts-ignore
+                                            image={
+                                                "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/"+el.id+".gif"} type={el.types[0].type.name
+                                        }
+                                            abilitiesArray={abArr}
+                                            height={el.height}
+                                            weight={el.weight}
+                                        />
+                                    </div>
+                                )
+                            })}
+                </div>
+            </AppView>
         </div>
   )
 }
