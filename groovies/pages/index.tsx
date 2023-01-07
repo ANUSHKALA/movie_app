@@ -45,6 +45,7 @@ const Home: NextPage = (props) => {
 
     return (
         <div>
+
             <AppView title='Pokedex'>
 
                 <div className='flex justify-center'>
@@ -54,8 +55,10 @@ const Home: NextPage = (props) => {
                         {l.map((el:string,index:number) => {
                                 return(
                                     <li className="">
-                                        <a href="/types/[type]"
-                                           className="inline-block py-3 px-4 rounded-lg hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white">
+                                        <a
+                                            href={`/types/${el.toLowerCase()}`}
+                                            className="inline-block py-3 px-4 rounded-lg hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white"
+                                        >
                                             {el}
                                         </a>
                                     </li>
@@ -76,7 +79,6 @@ const Home: NextPage = (props) => {
                                     // @ts-ignore
                                     abArr.push(el.ability.name);
                                 })
-                                // console.log(abArr)
                                 return(
                                     <div key={index} className="mx-3 w-40 rounded-xl my-2 bg-slate-200 overflow-hidden">
                                         <Card
@@ -84,8 +86,9 @@ const Home: NextPage = (props) => {
                                             id={el.id}
                                             // @ts-ignore
                                             image={
-                                                "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/"+el.id+".gif"} type={el.types[0].type.name
-                                        }
+                                                "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/"+el.id+".gif"
+                                            }
+                                            type={el.types[0].type.name}
                                             abilitiesArray={abArr}
                                             height={el.height}
                                             weight={el.weight}

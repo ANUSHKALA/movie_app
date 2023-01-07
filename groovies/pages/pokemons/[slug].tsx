@@ -7,7 +7,7 @@ import {useEffect, useState} from "react";
 import AppView from "../../components/AppView";
 
 export async function getServerSideProps(context) {
-    let data = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=10&offset=0`)
+    let data = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=10000&offset=0`)
         .then(res => res.json())
         .then(res =>  res.results)
     console.log(data)
