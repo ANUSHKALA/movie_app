@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import React from 'react';
+import Link from "next/link";
 
 const l = ['Normal','Fire','Water','Grass','Electric','Ice','Poison','Fighting','Ground','Flying','Psychic','Bug','Rock','Ghost','Dragon','Dark','Steel','Fairy']
 
@@ -9,7 +10,9 @@ const AppView = ({children, title}) => (
             <img src='/bgimg.jpg' className='w-screen h-7 object-cover'/>
         </div>
         <div className='flex items-center justify-items-stretch'>
-            <img src='/pokedex.png' className='h-14 px-5'/>
+            <Link href="/">
+                <img src='/pokedex.png' className='h-14 px-5'/>
+            </Link>
             <input placeholder='Search pokemons' className=' border rounded-3xl border-gray-700 block w-full h-8 mx-4 my-2 px-4'/>
         </div>
         <Head>

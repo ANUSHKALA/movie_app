@@ -42,9 +42,10 @@ const TypePage = (props) => {
             <div className="flex flex-wrap justify-center mx-auto mt-5 ">
                 {data.map((el, index) => {
                     return (
-                        <div className="mx-3 w-40 rounded-xl my-2 bg-slate-200 overflow-hidden">
+                        <div className="">
                             <Card
                                 name={el.name}
+                                // @ts-ignore
                                 image={
                                     "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/"+el.id+".gif"
                                 }

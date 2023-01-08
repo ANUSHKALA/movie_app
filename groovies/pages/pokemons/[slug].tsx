@@ -45,34 +45,29 @@ const PokePage = (props) => {
     return(
         <div>
             {/*<AppView title='gj'></AppView>*/}
-            <main className={styles.pokepage}>
-                <div className="bg-gray-400 w-screen justify-items-center pb-7 h-fit grid">
-                    <h1 className="text-6xl mt-7 text-gray-700 font-bold">
-                        <Link href="/">
-                            POKEDEX
-                        </Link>
-                    </h1>
-                </div>
-                <div className="bg-gray-300 p-3 mx-auto my-auto rounded-2xl h-100">
-                    <h1 className="text-center text-gray-800 text-5xl capitalize px-auto py-10">
-                        {props.pokemon.name}
-                    </h1>
-                    <div className="mx-auto">
-                        <    // @ts-ignore
-                            img src={props.pokemon.sprites.other.dream_world.front_default} className="mx-auto"/>
-                    </div>
-                    <div className="ml-4 my-auto pl-30 text-2xl pt-3 text-gray-700 capitalize">
-                        <br/>
-                        Weight: { props.pokemon.weight}
-                        <br />
-                        Height: {props.pokemon.height}
-                        <br />
-                        Type: {props.pokemon.types[0].type.name}
-                        <br />
-                        Abilities: {abilities + " "}
+            <AppView title={props.pokemon.name}>
+                <div className="flex justify-center">
+                    <div className="py-60">
+                        <h1 className="text-center text-gray-800 text-5xl capitalize px-auto py-10">
+                            {props.pokemon.name}
+                        </h1>
+                        <div className="mx-auto">
+                            <    // @ts-ignore
+                                img src={props.pokemon.sprites.other.dream_world.front_default} className="mx-auto"/>
+                        </div>
+                        <div className="ml-4 my-auto pl-30 text-2xl pt-3 text-gray-700 capitalize">
+                            <br/>
+                            Weight: { props.pokemon.weight}
+                            <br />
+                            Height: {props.pokemon.height}
+                            <br />
+                            Type: {props.pokemon.types[0].type.name}
+                            <br />
+                            Abilities: {abilities + " "}
+                        </div>
                     </div>
                 </div>
-            </main>
+            </AppView>
         </div>
     )}
 

@@ -1,7 +1,7 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Card from "../components/Card";
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import Link from "next/link";
 import AppView from "../components/AppView";
 
@@ -59,7 +59,7 @@ const Home: NextPage = (props) => {
                                     abArr.push(el.ability.name);
                                 })
                                 return(
-                                    <div key={index} className="mx-3 w-40 rounded-xl my-2 bg-slate-200 overflow-hidden">
+                                    <div key={index} className={""}>
                                         <Card
                                             name={el.name}
                                             id={el.id}

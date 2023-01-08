@@ -33,12 +33,18 @@ types.set("steel","zinc-400")
 types.set("fairy","rose-200")
 
 
+
 const Card = (props:CardProps) =>{
 
-    // console.log(props.abilitiesArray)
+    const [hoverState,setHoverState] = React.useState(false);
+
+    const onHover = () => {
+        console.log("hovered")
+        setHoverState(!hoverState)
+    }
 
     return(
-        <div className="mx-3 text-center">
+        <div onMouseEnter={onHover} onMouseLeave={onHover} className={hoverState?"mx-3 w-40 rounded-xl my-2 overflow-hidden text-center bg-slate-600 ":"mx-3 w-40 rounded-xl my-2 overflow-hidden text-center bg-slate-200 "}>
 
         <Link className='justify-center' href={{
             pathname:'/pokemons/[slug]'
