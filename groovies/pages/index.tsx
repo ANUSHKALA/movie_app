@@ -7,7 +7,7 @@ import AppView from "../components/AppView";
 
 
 export async function getServerSideProps(){
-    const res = await fetch("https://pokeapi.co/api/v2/pokemon?limit=10&offset=0")
+    const res = await fetch("https://pokeapi.co/api/v2/pokemon?limit=1000&offset=0")
     const resJ = await res.json();
     const rel = resJ.results;
     return{
@@ -41,40 +41,11 @@ const Home: NextPage = (props) => {
 
     }
 
-    const l = ['Normal','Fire','Water','Grass','Electric','Ice','Poison','Fighting','Ground','Flying','Psychic','Bug','Rock','Ghost','Dragon','Dark','Steel','Fairy']
-
     return (
         <div>
 
             <AppView title='Pokedex'>
 
-                <div className='flex justify-center'>
-
-
-                    <ul className="flex flex-wrap text-sm font-medium text-center text-gray-500 dark:text-gray-400">
-                        {l.map((el:string,index:number) => {
-                                return(
-                                    <li className="">
-                                        <a
-                                            href={`/types/${el.toLowerCase()}`}
-                                            className="inline-block py-3 px-4 rounded-lg hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white"
-                                        >
-                                            {el}
-                                        </a>
-                                    </li>
-                                )
-                            }
-                        )}
-                        <li>
-                            <a
-                                href='/'
-                                className="inline-block py-3 px-4 rounded-lg hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white"
-                            >
-                                All
-                            </a>
-                        </li>
-                    </ul>
-                </div>
                 <div className="flex flex-wrap justify-center mx-auto mt-5 ">
                     {    // @ts-ignore
                         data
