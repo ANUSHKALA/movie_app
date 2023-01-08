@@ -41,7 +41,7 @@ const Home: NextPage = (props) => {
 
     }
 
-    const l = ['Normal','Fire','Water','Grass','Electric','Ice','Poison','Fighting','Ground','Flying','Psychic','Bug','Rock','Ghost','Dragon','Dark','Steel','Fairy','All']
+    const l = ['Normal','Fire','Water','Grass','Electric','Ice','Poison','Fighting','Ground','Flying','Psychic','Bug','Rock','Ghost','Dragon','Dark','Steel','Fairy']
 
     return (
         <div>
@@ -65,6 +65,14 @@ const Home: NextPage = (props) => {
                                 )
                             }
                         )}
+                        <li>
+                            <a
+                                href='/'
+                                className="inline-block py-3 px-4 rounded-lg hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white"
+                            >
+                                All
+                            </a>
+                        </li>
                     </ul>
                 </div>
                 <div className="flex flex-wrap justify-center mx-auto mt-5 ">
