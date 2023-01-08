@@ -4,8 +4,6 @@ import {useEffect, useState} from "react";
 import Card from "../../components/Card";
 import AppView from "../../components/AppView";
 
-const l = ['normal','fire','water','grass','electric','ice','poison','fighting','ground','flying','psychic','bug','rock','ghost','dragon','dark','steel','fairy']
-
 export const getServerSideProps = async (context) => {
     let tp = context.params.type;
     const data = await fetch("https://pokeapi.co/api/v2/type/"+tp).then(res => res.json()).then(res => res.pokemon)
@@ -42,7 +40,7 @@ const TypePage = (props) => {
             <div className="flex flex-wrap justify-center mx-auto mt-5 ">
                 {data.map((el, index) => {
                     return (
-                        <div className="">
+                        <div key={index} className="">
                             <Card
                                 name={el.name}
                                 // @ts-ignore
