@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const l = ['Normal','Fire','Water','Grass','Electric','Ice','Poison','Fighting','Ground','Flying','Psychic','Bug','Rock','Ghost','Dragon','Dark','Steel','Fairy']
 
-const AppView = ({children, title}) => {
+const AppView = ({children, title, pageType}) => {
 
     const [selectState, setSelectState] = useState(false)
 
@@ -31,15 +31,13 @@ const AppView = ({children, title}) => {
             </Head>
 
             <div className='flex justify-center'>
-
-
                 <ul className="flex flex-wrap text-sm font-medium text-center text-gray-500 dark:text-gray-400">
                     {l.map((el:string,index:number) => {
                             return(
                                 <li onClick={onClick} className="mx-3 my-2">
                                     <a
                                         href={`/types/${el.toLowerCase()}`}
-                                        className={selectState?"inline-block py-3 px-4 rounded-lg hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white ":"inline-block py-3 px-4 rounded-lg hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white bg-gray-300"}
+                                        className={pageType==el.toLowerCase()?"bg-amber-400 inline-block py-3 px-4 rounded-lg hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white":"inline-block py-3 px-4 rounded-lg hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white"}
                                     >
                                         {el}
                                     </a>
@@ -50,7 +48,7 @@ const AppView = ({children, title}) => {
                     <li onClick={onClick} className="mx-3 my-2">
                         <a
                             href='/'
-                            className={selectState?"inline-block py-3 px-4 rounded-lg hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white ":"inline-block py-3 px-4 rounded-lg hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white bg-gray-300"}
+                            className={pageType?"inline-block py-3 px-4 rounded-lg hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white hover:text-white":"inline-block py-3 px-4 rounded-lg hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white bg-amber-400 "}
                         >
                             All
                         </a>

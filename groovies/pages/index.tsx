@@ -44,7 +44,7 @@ const Home: NextPage = (props) => {
     return (
         <div>
 
-            <AppView title='Pokedex'>
+            <AppView title='Pokedex' pageType="">
 
                 <div className="flex flex-wrap justify-center mx-auto mt-5 ">
                     {    // @ts-ignore

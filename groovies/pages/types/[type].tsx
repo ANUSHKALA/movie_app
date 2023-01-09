@@ -3,6 +3,7 @@
 import {useEffect, useState} from "react";
 import Card from "../../components/Card";
 import AppView from "../../components/AppView";
+import {types} from "util";
 
 export const getServerSideProps = async (context) => {
     let tp = context.params.type;
@@ -10,7 +11,7 @@ export const getServerSideProps = async (context) => {
 
     return {
         props: {
-            data
+            data,tp
         }
     }
 
@@ -35,8 +36,10 @@ const TypePage = (props) => {
     }
 
     useEffect(fetchPokemon,[])
+
+
     return(
-        <AppView title={'Types'}>
+        <AppView title={'Types'} pageType={props.tp}>
             <div className="flex flex-wrap justify-center mx-auto mt-5 ">
                 {data.map((el, index) => {
                     return (
