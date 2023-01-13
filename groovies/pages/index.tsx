@@ -16,7 +16,10 @@ export async function getServerSideProps(context){
     }
 }
 
-const Home: NextPage = ({ pokemons }) => {
+const Home: NextPage = ({
+                            // @ts-ignore
+                            pokemons
+}) => {
     return (
         <div>
             <AppView title='Pokedex' pageType="">

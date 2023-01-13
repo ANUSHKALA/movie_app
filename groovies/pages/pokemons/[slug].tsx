@@ -45,7 +45,7 @@ const PokePage = (props) => {
     return(
         <div>
             {/*<AppView title='gj'></AppView>*/}
-            <AppView title={props.pokemon.name}>
+            <AppView title={props.pokemon.name} pageType=''>
                 <div className="flex justify-center">
                     <div className="py-60">
                         <h1 className="text-center text-gray-800 text-5xl capitalize px-auto py-10">

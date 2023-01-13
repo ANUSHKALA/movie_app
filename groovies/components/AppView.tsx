@@ -51,22 +51,22 @@ const AppView = ({children, title, pageType}) => {
             <div className='flex justify-center'>
                 <ul className="flex flex-wrap text-sm font-medium text-center text-gray-500 dark:text-gray-400">
                     <li onClick={onClick} className="mx-2 my-2">
-                        <a
+                        <Link
                             href='/'
                             className={pageType?"inline-block py-3 px-4 rounded-lg hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white hover:text-white":"inline-block py-3 px-4 rounded-lg hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white bg-amber-400 "}
                         >
                             All
-                        </a>
+                        </Link>
                     </li>
                     {l.map((el:string,index:number) => {
                             return(
                                 <li onClick={onClick} className="mx-2 my-2">
-                                    <a
+                                    <Link
                                         href={`/types/${el.toLowerCase()}`}
                                         className={pageType==el.toLowerCase()?"bg-amber-400 inline-block py-3 px-4 rounded-lg hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white":"inline-block py-3 px-4 rounded-lg hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white"}
                                     >
                                         {el}
-                                    </a>
+                                    </Link>
                                 </li>
                             )
                         }
