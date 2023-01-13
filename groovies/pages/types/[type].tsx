@@ -1,6 +1,6 @@
 // @ts-ignore
 
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import Card from "../../components/Card";
 import AppView from "../../components/AppView";
 import {types} from "util";
@@ -21,13 +21,14 @@ export const getServerSideProps = async (context) => {
 const TypePage = (props) => {
     // console.log(props.data)
 
+
+
     const [data,setData] = useState([]);
 
     const fetchPokemon = () => {
         setData([]);
         // @ts-ignore
         (props.data).map((el:{},index:number) => {
-            // console.log(el.pokemon.name)
             // @ts-ignore
             fetch(el.pokemon.url)
                 .then(res => res.json())
@@ -35,11 +36,13 @@ const TypePage = (props) => {
         })
     }
 
+
+
     useEffect(fetchPokemon,[])
 
 
     return(
-        <AppView title={'Types'} pageType={props.tp}>
+        <AppView title={'Types'} pageType={props.tp} >
             <div className="flex flex-wrap justify-center mx-auto mt-5 ">
                 {data.map((el, index) => {
                     return (
