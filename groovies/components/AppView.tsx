@@ -48,11 +48,14 @@ const AppView = ({children, title, pageType}) => {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            <div className='flex justify-center'>
-                <ul className="flex flex-wrap text-sm font-medium text-center text-gray-500 dark:text-gray-400">
+            <div className='flex '>
+                <ul className="flex flex-wrap justify-center text-sm font-medium text-center text-gray-500 dark:text-gray-400">
                     <li onClick={onClick} className="mx-2 my-2">
                         <Link href='/'>
-                            <a className={pageType?"inline-block py-3 px-4 rounded-lg hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white hover:text-white":"inline-block py-3 px-4 rounded-lg hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white bg-amber-400 "}>
+                            <a className={pageType?
+                                "inline-block py-3 px-4 rounded-lg hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white hover:text-white"
+                                :
+                                "inline-block py-3 px-4 rounded-lg hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white bg-amber-400 "}>
                                 All
                             </a>
                         </Link>
@@ -63,7 +66,10 @@ const AppView = ({children, title, pageType}) => {
                                     <Link
                                         href={`/types/${el.toLowerCase()}`}
                                     >
-                                        <a className={pageType==el.toLowerCase()?"inline-block py-3 px-4 rounded-lg hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white bg-amber-400":" inline-block py-3 px-4 rounded-lg hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white"}>
+                                        <a className={pageType==el.toLowerCase()?
+                                            "inline-block py-3 px-4 rounded-lg hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white bg-amber-400"
+                                            :
+                                            " inline-block py-3 px-4 rounded-lg hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white"}>
                                             {el}
                                         </a>
                                     </Link>

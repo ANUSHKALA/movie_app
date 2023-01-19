@@ -2,24 +2,39 @@ import type { NextPage } from 'next'
 import Card from "../components/Card";
 import React, {useEffect, useState} from "react";
 import AppView from "../components/AppView";
+import Pagination, {paginate} from "../components/Pagination";
 
 
 export async function getServerSideProps(context){
-    let data = await fetch("https://pokeapi.co/api/v2/pokemon?limit=100&offset=0").then(res => res.json()).then(res => res.results)
+    const limit = 60;
+    console.log(context.query)
+    const pageNumber = context.query?.page || 0;
+    let data = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=50&offset=${pageNumber*limit}`).then(res => res.json())
     if(context.query?.keyword)
-        data = data.filter(pokemon => pokemon.name.toLowerCase().startsWith(context.query.keyword.toLowerCase()));
-    const pokemons = await Promise.all(data.map(async (pokemon) => await fetch(pokemon.url).then(res => res.json())));
+        data = data['results'].filter(pokemon => pokemon.name.toLowerCase().startsWith(context.query.keyword.toLowerCase()));
+    const pokemons = await Promise.all(data['results'].map(async (pokemon) => await fetch(pokemon.url).then(res => res.json())));
     return{
         props: {
-            pokemons
+            pokemons,
+            count: data?.count
         }
     }
 }
 
-const Home: NextPage = ({
-                            // @ts-ignore
-                            pokemons
-}) => {
+const Home: NextPage = (
+
+    { // @ts-ignore
+        pokemons, count
+    }
+    ) => {
+
+    const [currentPage,setCurrentPage] = useState(1);
+    const pageSize = 50;
+
+    const onPageChange = (page) => {
+        setCurrentPage(page);
+    }
+
     return (
         <div>
             <AppView title='Pokedex' pageType="">
@@ -49,6 +64,7 @@ const Home: NextPage = ({
                         )
                     })}
                 </div>
+                <Pagination totalCount={count} currentPage={currentPage} pageSize={pageSize} onPageChange={onPageChange}/>
             </AppView>
         </div>
   )
