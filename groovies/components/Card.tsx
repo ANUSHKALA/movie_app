@@ -39,7 +39,7 @@ const Card = (props:CardProps) =>{
     const [hoverState,setHoverState] = React.useState(false);
 
     const onHover = () => {
-        console.log("hovered")
+        // console.log("hovered")
         setHoverState(!hoverState)
     }
 

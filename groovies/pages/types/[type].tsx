@@ -4,6 +4,7 @@ import React, {useEffect, useState} from "react";
 import Card from "../../components/Card";
 import AppView from "../../components/AppView";
 import {types} from "util";
+import PokemonLister from "../../components/PokemonLister";
 
 export const getServerSideProps = async (context) => {
     let tp = context.params.type;
@@ -44,19 +45,20 @@ const TypePage = (props) => {
     return(
         <AppView title={'Types'} pageType={props.tp} >
             <div className="flex flex-wrap justify-center mx-auto mt-5 ">
-                {data.map((el, index) => {
-                    return (
-                        <div key={index} className="">
-                            <Card
-                                name={el.name}
-                                // @ts-ignore
-                                image={
-                                    "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/"+el.id+".gif"
-                                }
-                            />
-                        </div>
-                    )
-                })}
+                <PokemonLister pokemons={data} />
+                {/*{data.map((el, index) => {*/}
+                {/*    return (*/}
+                {/*        <div key={index} className="">*/}
+                {/*            <Card*/}
+                {/*                name={el.name}*/}
+                {/*                // @ts-ignore*/}
+                {/*                image={*/}
+                {/*                    "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/"+el.id+".gif"*/}
+                {/*                }*/}
+                {/*            />*/}
+                {/*        </div>*/}
+                {/*    )*/}
+                {/*})}*/}
             </div>
         </AppView>
     )

@@ -2,11 +2,13 @@ import Head from 'next/head';
 import React, {useEffect, useState} from 'react';
 import Link from "next/link";
 import {useRouter} from "next/router";
+import Pagination from "./Pagination";
 
 const l = ['Normal','Fire','Water','Grass','Electric','Ice','Poison','Fighting','Ground','Flying','Psychic','Bug','Rock','Ghost','Dragon','Dark','Steel','Fairy']
 
-const AppView = ({children, title, pageType}) => {
+const AppView = ({children, title, pageType, data}) => {
     const router = useRouter();
+    console.log(data)
 
     const [selectState, setSelectState] = useState(false)
     const [keyword, setKeyword] = useState(router?.query?.keyword);
@@ -20,6 +22,13 @@ const AppView = ({children, title, pageType}) => {
         e.preventDefault();
         router.push(`/?keyword=${keyword}`);
     };
+
+    const [currentPage,setCurrentPage] = useState(1);
+    const pageSize = 50;
+
+    const onPageChange = (page) => {
+        setCurrentPage(page);
+    }
 
     return(
 
