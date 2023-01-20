@@ -48,8 +48,8 @@ const AppView = ({children, title, pageType}) => {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            <div className='flex '>
-                <ul className="flex flex-wrap justify-center text-sm font-medium text-center text-gray-500 dark:text-gray-400">
+            <div className='flex flex-wrap justify-center'>
+                <ul className="flex  text-sm font-medium text-center text-gray-500 dark:text-gray-400">
                     <li onClick={onClick} className="mx-2 my-2">
                         <Link href='/'>
                             <a className={pageType?
